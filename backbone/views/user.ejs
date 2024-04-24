@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+
+<head>
+    <title>Disable Default Control Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" />
+
+    <script src="https://apis.mappls.com/advancedmaps/api/bfda91035e35188fd54897f55c730daa/map_sdk?layer=vector&v=3.0&callback=initMap1" defer async></script>
+
+
+
+
+    <style>
+        *,
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0px 0px 0px 0px;
+        }
+        
+        #map {
+            margin: 0;
+            margin-top: 0px;
+            padding: 0;
+            width: 70vw;
+            height: 100vh;
+            float: right;
+            border-left: 10px rgb(211, 211, 211) solid;
+            box-shadow: -10px 0 10px -5px rgba(127, 131, 129, 0.5);
+        }
+        
+        .container {
+            width: 27vw;
+            left: 270px;
+            background: #d4e6da;
+            border-radius: 10px;
+            min-width: 450px;
+            position: relative;
+            min-height: 100px;
+            transform: translate(-50%, -50%);
+            margin: 10px;
+            display: flex;
+            flex-direction: row;
+            border-left: 2px #356e6f solid;
+            border-bottom: 2px #356e6f solid;
+            padding-left: 0px;
+            margin-left: 0px;
+        }
+        
+        .container li {
+            font-size: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin: 0 2.5%;
+            padding: 5px;
+            margin-top: 10px;
+            margin-left: 10px;
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        .distance {
+            font-size: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+            margin-top: 20px;
+            margin-left: 10px;
+            position: relative;
+            float: left;
+            margin-right: 10px;
+            color: black;
+            margin-bottom: 10px;
+        }
+        
+        .para {
+            margin-top: 10px;
+        }
+        
+        .sp {
+            color: green;
+        }
+        
+        .list {
+            margin-top: 46vh;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 500px;
+            padding-top: 40px;
+            padding-left: 0px;
+            margin-left: 0px;
+        }
+        
+        .m {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+    <div class="m">
+
+
+
+        <div class="list">
+            <ul>
+                <% characters.forEach(function(charact) { %>
+                    <div class="container">
+                        <li class="distance">
+                            <p class="para">Distance :
+                                <span class="sp"><%= charact.distance%></span>
+                            </p>
+                            <p class="para">Duration :
+                                <span class="sp"><%= charact.duration%></span>
+
+
+                        </li>
+
+
+                    </div>
+
+                    <% }); %>
+            </ul>
+
+
+        </div>
+        <%- include('user.html') %>
+    </div>
+
+
+</body>
+
+</html>

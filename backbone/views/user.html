@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <title>Disable Default Control Map</title>
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../css/user.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+    />
+    <script
+      src="https://apis.mappls.com/advancedmaps/api/bfda91035e35188fd54897f55c730daa/map_sdk?layer=vector&v=3.0&callback=initMap1"
+      defer
+      async
+    ></script>
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <script>
+      // location variables
+      let userLatitude;
+      let userLongitude;
+
+      // funtion to find user's location
+      navigator.geolocation.getCurrentPosition(function (position) {
+        userLatitude = position.coords.latitude;
+        userLongitude = position.coords.longitude;
+        console.log(userLatitude, userLongitude);
+      });
+
+      // map initialization
+      var map;
+
+      function initMap1() {
+        var mapContainer = document.getElementById("map");
+        map = new mappls.Map(mapContainer, {
+          center: [userLatitude, userLongitude],
+          disableDoubleClickZoom: false,
+          zoomControl: true,
+          draggable: true,
+          scrollwheel: true,
+          zoom: 5,
+        });
+
+        // add circle
+        mappls_circle = new mappls.Circle({
+          map: map,
+          center: {
+            lat: userLatitude,
+            lng: userLongitude,
+          },
+          radius: 10000,
+          fillColor: "blue",
+          fillOpacity: 0.2,
+          strokeweight: 4,
+          strokeColor: "blue",
+        });
+
+        var lat = [
+          28.544, 29.5454, 27.27189158, 27.2158203125, 28.249511, 28.867825,
+        ];
+        var lan = [
+          77.544, 78.5454, 77.27189158, 77.2158203125, 77.249511, 77.867825,
+        ];
+
+        for (var i = 0; i < lat.length; i++) {
+          var marker = new mappls.Marker({
+            map: map,
+            position: {
+              lat: lat[i],
+              lng: lan[i],
+            },
+            fitbounds: true,
+            icon_url: "https://apis.mapmyindia.com/map_v3/1.png",
+            popupHtml:
+              '<div style="max-height:150px;min-width:200px;overflow-y: scroll;"><h2 style="font: bold 16px tahoma helvetica">volunteer : aditya</h2>' +
+              '<p style="font: italic 14px/20px times">Liking:dog,cat,bird</p>' +
+              '<p style="font: italic 14px/20px times"></p>' +
+              "<p>contact no:964553434</p></div>",
+          });
+        }
+
+        Marker1 = new mappls.Marker({
+          map: map,
+          position: {
+            lat: userLatitude,
+            lng: userLongitude,
+          },
+          fitbounds: true,
+          icon_url: "https://apis.mapmyindia.com/map_v3/2.png",
+        });
+
+        // multiple markers
+      }
+
+      initMap1();
+    </script>
+  </body>
+</html>

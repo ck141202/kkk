@@ -1,0 +1,36 @@
+.body {
+    background-color: #d4e6da;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: var(--font-montserrat);
+}
+
+.qr-code {
+    margin: 50px 0;
+}
+
+.tagline {
+    background-color: #2b2d42;
+    color: #fff;
+    padding: 10px;
+    font-size: 18px 20px 20px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    font-family: var(--font-montserrat);
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #356e6f;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--font-montserrat);
+}

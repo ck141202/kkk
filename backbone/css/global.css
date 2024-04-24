@@ -1,0 +1,17 @@
+:root {
+    /* fonts */
+    --font-montserrat: Montserrat;
+    /* font sizes */
+    --font-size-sm: 22px;
+    --font-size-base: 26px;
+    --font-size-lg: 30px;
+    --font-size-xl: 70px;
+    /* Colors */
+    --color-white: #fff;
+    --color-darkslategray: #2a484e;
+    --color-teal-100: #356e6f;
+    --color-honeydew: #d4e6da;
+    --color-yellow: #ffff00;
+    /* border radiuses */
+    --br-md: 8px;
+}
